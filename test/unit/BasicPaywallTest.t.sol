@@ -121,7 +121,7 @@ contract BasicPaywallTest is Test {
         new BasicPaywallWithERC20(supportedTokens, monthPrices, yearPrices);
     }
 
-    function testConstructorSetTheSupportedTokensCorrectly() public {
+    function testConstructorSetTheSupportedTokensCorrectly() public view {
         address[] memory supportedTokens = basicPaywallWithERC20
             .getSupportedTokens();
 
@@ -130,7 +130,7 @@ contract BasicPaywallTest is Test {
         vm.assertEq(supportedTokens[1], config.usdtAddress);
     }
 
-    function testConstructorSetThePricesCorrectly() public {
+    function testConstructorSetThePricesCorrectly() public view {
         (uint256 usdcMonthPrice, uint256 usdcYearPrice) = basicPaywallWithERC20
             .getPriceByToken(config.usdcAddress);
         (uint256 usdtMonthPrice, uint256 usdtYearPrice) = basicPaywallWithERC20
